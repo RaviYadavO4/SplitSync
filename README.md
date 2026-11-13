@@ -72,7 +72,7 @@ Every expense creation, multi-installment FIFO partial settlement, or swipe-to-d
 
 | 🏠 **Home Dashboard** | 🧾 **Group Split Breakdown** | 📊 **Canvas Analytics** |
 | :---: | :---: | :---: |
-| <div style="background: #0f172a; border-radius: 40px; padding: 12px; display: inline-block; box-shadow: 0 25px 50px rgba(0,0,0,0.8); border: 4px solid #334155;"><div style="border-radius: 30px; overflow: hidden; background: #000;"><img src="screenshots/home.png" width="260" alt="Home Dashboard" style="display: block;" /></div></div> | <div style="background: #0f172a; border-radius: 40px; padding: 12px; display: inline-block; box-shadow: 0 25px 50px rgba(0,0,0,0.8); border: 4px solid #334155;"><div style="border-radius: 30px; overflow: hidden; background: #000;"><img src="screenshots/group_detail.png" width="260" alt="Group Detail" style="display: block;" /></div></div> | <div style="background: #0f172a; border-radius: 40px; padding: 12px; display: inline-block; box-shadow: 0 25px 50px rgba(0,0,0,0.8); border: 4px solid #334155;"><div style="border-radius: 30px; overflow: hidden; background: #000;"><img src="screenshots/analytics.png" width="260" alt="Canvas Analytics" style="display: block;" /></div></div> |
+| <img src="screenshots/home.png" width="240" alt="Home Dashboard" /> | <img src="screenshots/group_detail.png" width="240" alt="Group Detail" /> | <img src="screenshots/analytics.png" width="240" alt="Canvas Analytics" /> |
 
 </div>
 
@@ -128,7 +128,7 @@ com.portfolio.splitsync/
 │   ├── sync/                       # HiltWorker, NetworkMonitor (ConnectivityManager), FCM
 │   └── repository/                 # Offline-First Repository Implementations
 │
-├── 📂 di/                          # Dagger Hilt Modules (@Provides & @Binds)
+├── 📂 di/                          # Dager Hilt Modules (@Provides & @Binds)
 │
 └── 📂 ui/                          # MVVM Presentation Layer
     ├── theme/                      # Deep Slate & Electric Emerald Fintech Palette
