@@ -3,19 +3,19 @@
 # 💸 SplitSync
 ### **Offline-First Collaborative Expense Splitter & Settlement Engine**
 
-*Split bills anywhere—on flights, road trips, or zero-network zones. Built with Neo-Bank aesthetics, optimistic conflict resolution, and FIFO partial settlement tracking.*
+*Split bills anywhere—on flights, deep road trips, or zero-network zones. Built with Neo-Bank aesthetics, optimistic conflict resolution, and FIFO partial settlement tracking.*
 
 <br/>
 
-[![Kotlin](https://shields.io)](https://kotlinlang.org)
-[![Jetpack Compose](https://shields.io)](https://android.com)
-[![Clean Architecture](https://shields.io)](https://android.com)
-[![Room DB](https://shields.io)](https://android.com)
-[![Firebase](https://google.com)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1%2B-blue?style=for-the-badge&logo=kotlin)](https://kotlinlang.org)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-M3-brightgreen?style=for-the-badge&logo=android)](https://developer.android.com/jetpack/compose)
+[![Clean Architecture](https://img.shields.io/badge/Clean%20Architecture-UDF-orange?style=for-the-badge)](https://developer.android.com)
+[![Room DB](https://img.shields.io/badge/Room%20DB-SSOT-purple?style=for-the-badge&logo=sqlite)](https://developer.android.com/training/data-storage/room)
+[![Firebase](https://img.shields.io/badge/Firebase-Firestore%20&%20FCM-yellow?style=for-the-badge&logo=firebase)](https://firebase.google.com)
 
 <br/>
 
-[✨ Key Features](#-what-makes-splitsync-unique) • [🏗️ System Architecture](#%EF%B8%8F-system-architecture) • [🧠 Engineering Deep-Dive](#-engineering-deep-dive) • [🚀 Quick Start](#-quick-start) • [📱 App Showcase](#-app-showcase) • [📦 Download APK](#-download-apk)
+[✨ Key Features](#-what-makes-splitsync-unique) • [🏗️ System Architecture](#%EF%B8%8F-system-architecture) • [🧠 Engineering Deep-Dive](#-engineering-deep-dive) • [📱 App Showcase](#-app-showcase) • [📦 Download APK](#-download-apk) • [🚀 Quick Start](#-quick-start)
 
 </div>
 
@@ -23,7 +23,9 @@
 
 ## 🎯 Why SplitSync?
 
-Most expense-splitting apps freeze, lose edits, or throw network errors when you are traveling in low-connectivity areas. **SplitSync** treats **local persistence as the Single Source of Truth (SSOT)**—meaning every expense creation, partial settlement, or swipe-to-delete executes in **<16ms locally** and reconciles seamlessly with the cloud when connectivity returns.
+Most expense-splitting apps freeze, spin endlessly, or throw network errors when traveling in low-connectivity areas. **SplitSync** treats **local Room persistence as the absolute Single Source of Truth (SSOT)**. 
+
+Every expense creation, multi-installment FIFO partial settlement, or swipe-to-delete executes locally in **<16ms** with reactive UI updates via Kotlin Flow, and syncs seamlessly in the background with Firebase Firestore when connectivity is restored.
 
 ---
 
@@ -33,7 +35,7 @@ Most expense-splitting apps freeze, lose edits, or throw network errors when you
   <tr>
     <td width="50%">
       <h3>⚡ Zero-Latency Offline Engine</h3>
-      <p>Powered by <b>Room Database</b> and reactive <b>Kotlin Flow</b>. Add groups, split bills, and settle dues in Airplane Mode with live connectivity badges (<code>Offline Mode</code> → <code>Syncing...</code> → <code>All Synced</code>).</p>
+      <p>Powered by <b>Room Database</b> and reactive <b>Kotlin Flow</b>. Add groups, split bills, and settle dues in Airplane Mode with live connectivity status pills (<code>Offline Mode</code> → <code>Syncing...</code> → <code>All Synced</code>).</p>
     </td>
     <td width="50%">
       <h3>💳 Pro FIFO Partial Settlements</h3>
@@ -43,7 +45,7 @@ Most expense-splitting apps freeze, lose edits, or throw network errors when you
   <tr>
     <td width="50%">
       <h3>🛡️ Version-Based Conflict Resolver</h3>
-      <p>Concurrent offline edits never overwrite user data silently. Non-conflicting updates merge via <b>Last-Write-Wins (LWW)</b>, while financial amount collisions trigger an interactive resolution dialog.</p>
+      <p>Concurrent offline edits never overwrite user data silently. Non-conflicting updates merge via <b>Last-Write-Wins (LWW)</b>, while financial amount collisions trigger an interactive conflict resolution dialog.</p>
     </td>
     <td width="50%">
       <h3>🤝 Multi-User Auto-Discovery</h3>
@@ -64,16 +66,39 @@ Most expense-splitting apps freeze, lose edits, or throw network errors when you
 
 ---
 
+## 📱 App Showcase
+
+<div align="center">
+  <table style="border: none;">
+    <tr>
+      <td align="center" style="padding: 10px;">
+        <b>🏠 Home Dashboard</b><br/><br/>
+        <img src="screenshots/home.png" width="270" alt="Home Dashboard" style="border-radius: 20px; border: 3px solid #1e293b; box-shadow: 0 12px 30px rgba(0,0,0,0.6);" />
+      </td>
+      <td align="center" style="padding: 10px;">
+        <b>🧾 Group Split Breakdown</b><br/><br/>
+        <img src="screenshots/group_detail.png" width="270" alt="Group Detail" style="border-radius: 20px; border: 3px solid #1e293b; box-shadow: 0 12px 30px rgba(0,0,0,0.6);" />
+      </td>
+      <td align="center" style="padding: 10px;">
+        <b>📊 Canvas Analytics</b><br/><br/>
+        <img src="screenshots/analytics.png" width="270" alt="Canvas Analytics" style="border-radius: 20px; border: 3px solid #1e293b; box-shadow: 0 12px 30px rgba(0,0,0,0.6);" />
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
 ## 🏗️ System Architecture
 
-SplitSync follows **Clean Architecture** and **Unidirectional Data Flow (UDF)** with strict separation between pure Kotlin domain rules and Android framework dependencies.
+SplitSync strictly adheres to **Clean Architecture** and **Unidirectional Data Flow (UDF)**, separating pure Kotlin domain business logic from framework dependencies.
 
 ```mermaid
 flowchart LR
-    subgraph Presentation ["🎨 UI Layer (Jetpack Compose)"]
-        UI[Screens & Custom Canvas]
+    subgraph Presentation ["🎨 UI Layer (Jetpack Compose & Material 3)"]
+        UI[Screens & Custom Canvas Donut]
         VM[ViewModels + StateFlow]
-        UI <-->|Events / UiState| VM
+        UI <-->|Events & UiState| VM
     end
 
     subgraph Domain ["🧠 Domain Layer (Pure Kotlin)"]
@@ -166,22 +191,10 @@ When a member pays back a partial amount, <code>recordFifoSettlement()</code> so
 
 ---
 
-## 📱 App Showcase
-
-<div align="center">
-
-| 🏠 Home Dashboard | 🧾 Split Breakdown & Progress | 📊 Canvas Analytics & Settle |
-| :---: | :---: | :---: |
-| <img src="screenshots/home.png" width="260" style="border-radius: 24px; border: 4px solid #1e293b; box-shadow: 0 10px 25px rgba(0,0,0,0.5);" alt="Home Dashboard"/> | <img src="screenshots/group_detail.png" width="260" style="border-radius: 24px; border: 4px solid #1e293b; box-shadow: 0 10px 25px rgba(0,0,0,0.5);" alt="Expense Breakdown"/> | <img src="screenshots/analytics.png" width="260" style="border-radius: 24px; border: 4px solid #1e293b; box-shadow: 0 10px 25px rgba(0,0,0,0.5);" alt="Analytics Sheet"/> |
-
-</div>
-
----
-
 ## 📦 Download APK
 
 You can download and test the ready-to-run debug APK directly:
-👉 [Download SplitSync Debug APK](apk/SplitSync-debug.apk)
+👉 **[Download SplitSync Debug APK (v1.0)](apk/SplitSync-debug.apk)**
 
 ---
 
@@ -211,6 +224,6 @@ You can download and test the ready-to-run debug APK directly:
 👨‍💻 Developed by **Ravi Yadav**  
 [GitHub Repository](https://github.com/RaviYadavO4/SplitSync.git)
 
-If you found this project useful or inspiring, feel free to give it a ⭐!
+If you found this project useful or inspiring, please give it a ⭐!
 
 </div>
