@@ -69,22 +69,11 @@ Every expense creation, multi-installment FIFO partial settlement, or swipe-to-d
 ## 📱 App Showcase
 
 <div align="center">
-  <table style="border: none;">
-    <tr>
-      <td align="center" style="padding: 10px;">
-        <b>🏠 Home Dashboard</b><br/><br/>
-        <img src="screenshots/home.png" width="270" alt="Home Dashboard" style="border-radius: 20px; border: 3px solid #1e293b; box-shadow: 0 12px 30px rgba(0,0,0,0.6);" />
-      </td>
-      <td align="center" style="padding: 10px;">
-        <b>🧾 Group Split Breakdown</b><br/><br/>
-        <img src="screenshots/group_detail.png" width="270" alt="Group Detail" style="border-radius: 20px; border: 3px solid #1e293b; box-shadow: 0 12px 30px rgba(0,0,0,0.6);" />
-      </td>
-      <td align="center" style="padding: 10px;">
-        <b>📊 Canvas Analytics</b><br/><br/>
-        <img src="screenshots/analytics.png" width="270" alt="Canvas Analytics" style="border-radius: 20px; border: 3px solid #1e293b; box-shadow: 0 12px 30px rgba(0,0,0,0.6);" />
-      </td>
-    </tr>
-  </table>
+
+| 🏠 **Home Dashboard** | 🧾 **Group Split Breakdown** | 📊 **Canvas Analytics** |
+| :---: | :---: | :---: |
+| <div style="background: #0f172a; border-radius: 40px; padding: 12px; display: inline-block; box-shadow: 0 25px 50px rgba(0,0,0,0.8); border: 4px solid #334155;"><div style="border-radius: 30px; overflow: hidden; background: #000;"><img src="screenshots/home.png" width="260" alt="Home Dashboard" style="display: block;" /></div></div> | <div style="background: #0f172a; border-radius: 40px; padding: 12px; display: inline-block; box-shadow: 0 25px 50px rgba(0,0,0,0.8); border: 4px solid #334155;"><div style="border-radius: 30px; overflow: hidden; background: #000;"><img src="screenshots/group_detail.png" width="260" alt="Group Detail" style="display: block;" /></div></div> | <div style="background: #0f172a; border-radius: 40px; padding: 12px; display: inline-block; box-shadow: 0 25px 50px rgba(0,0,0,0.8); border: 4px solid #334155;"><div style="border-radius: 30px; overflow: hidden; background: #000;"><img src="screenshots/analytics.png" width="260" alt="Canvas Analytics" style="display: block;" /></div></div> |
+
 </div>
 
 ---

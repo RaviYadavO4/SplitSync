@@ -113,8 +113,8 @@ fun GroupAnalyticsBottomSheet(
                     )
                 ) {
                     Icon(Icons.Rounded.Share, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text("Share Report", fontWeight = FontWeight.Bold)
+//                    Spacer(modifier = Modifier.width(6.dp))
+//                    Text("Share Report", fontWeight = FontWeight.Bold)
                 }
             }
 
